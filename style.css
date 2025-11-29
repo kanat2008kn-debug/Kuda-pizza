@@ -1,22 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
-   margin: 0;
+    margin: 0;
     padding: 0;
-    box-sizing: border-box; 
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+
+:root {
+    --hello: #191919; /*заданная переменная*/
 }
 
 body {
-    font-family: 'Roboto', 'sans-serif';
-    color: #191919;
+    font-family: 'Roboto', sans-serif;
+    color: var(--color);    /*использование переменной*/
 }
 
 .info {
+    display: flex;
     margin-block: 60px;
+    justify-content: center;
 }
 
 .info h2 {
-    font-family: 'Inter', 'sans-serif';
+    font-family: 'Inter', sans-serif;
     font-size: 32px;
     font-weight: 600;
     margin-bottom: 16px;
@@ -32,24 +39,30 @@ body {
     margin-bottom: 1em;
 }
 
-.info__container {
+.container {
     width: calc(100% - 30px * 2);
     max-width: 850px;
     margin: 0 auto;
+}
+
+.info__container {
+    max-width: 850px;
+    width: 100%;
 }
 
 .info__link {
     color: #FF7010;
     background: none;
     border: none;
-    font-family: "inter", sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 700;
     font-size: 16px;
     cursor: pointer;
 }
 
 .info__text {
-    max-height: 300px;
+    transition: max-height 1s;
+    max-height: 310px;
     overflow: hidden;
     position: relative;
 }
@@ -58,17 +71,94 @@ body {
     max-height: 1000px;
 }
 
-.info__text::after{
+.info__text::after {
     width: 100%;
     height: 310px;
-    display: block;
+    opacity: 1;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
     content: "";
     position: absolute;
     top: 0;
     left: 0;
+    transition: opacity 1s, height 1s;
 }
 
 .info__text--active::after {
-    display: none;
+    opacity: 0;
+    height: 1000px;
 }
+
+/* Catalog */
+
+.catalog {
+    padding: 30px 0;
+}
+
+.catalog__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.catalog__title {
+    font-family: 'Inter', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.catalog__filter {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background-color: #fff; /*задний фон*/
+    border: 1px solid #F0F0F0; /*обводка толщина,сплошная,цвет*/
+    border-radius: 6px; /*скругление углов*/
+    padding: 9px 16px;
+    color: var(--hello);
+    cursor: pointer;
+    transition-duration: .3s; /*время эффекта*/
+    transition-property: background-color, color; /*свойства эффекта*/
+}
+
+.catalog__filter svg {
+    fill: #ff7010;
+    transition: fill .3s;
+}
+
+.catalog__filter:hover {        /*эффект при наведении*/
+    background-color: #FF7010;
+    color: #fff
+}
+
+.catalog__filter:hover svg {
+    fill: #fff;
+}
+
+/* End Catalog */
+
+/* Popup */
+
+.no-scroll {
+    overflow: hidden; /*убирает прокрутку страницы при открытом попапе*/
+}
+
+.popup-filter {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px) brightness(0.6); /*размытие и затемнение фона*/
+    display: flex;
+    justify-content: end;
+}
+
+.popup-filter__body {
+    background-color: white;
+    width: 520px;
+    height: 100%;
+    /* right: 0; */
+    /* position: absolute; */
+}
+
+/* End Popup */
