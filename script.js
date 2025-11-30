@@ -48,5 +48,18 @@ document.querySelector('.info__link').addEventListener('click', function () {
 
 /*ждет загрузки страницы*/
 document.addEventListener('DOMContentLoaded', function () {
-    /*находит кнопку*/
-    document.querySelector('.header__burger').addEventListener('click', function () {
+    const popupFilter = document.querySelector('.popup-filter');
+
+        const buttonPopup = document.querySelector('.popup__filter');
+    if (buttonPopup) {
+        buttonPopup.addEventListener('click', function () {
+            if (popupFilter) {
+                document.body.classList.add('no-scroll');
+                popupFilter.classList.add('popup-filter--show')
+                setTimeout(function () {
+                    popupFilter.classList.add('popup-filter--active')
+                }, 10);
+            }
+        });
+    }
+})

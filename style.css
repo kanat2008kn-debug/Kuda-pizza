@@ -139,7 +139,7 @@ body {
 /* Popup */
 
 .no-scroll {
-    overflow: hidden; /*убирает прокрутку страницы при открытом попапе*/
+   /* overflow: hidden; /*убирает прокрутку страницы при открытом попапе*/
 }
 
 .popup-filter {
@@ -149,8 +149,17 @@ body {
     width: 100%;
     height: 100%;
     backdrop-filter: blur(10px) brightness(0.6); /*размытие и затемнение фона*/
-    display: flex;
+    display: none;
     justify-content: end;
+    opacity: 0;
+}
+
+.popup-filter--show {
+    display: flex;
+}
+.popup-filter--active{
+    opacity: 1;
+    transition: 0.5s;
 }
 
 .popup-filter__header {
@@ -164,6 +173,7 @@ body {
     width: 520px;
     height: 100%;
     padding: 32px 20px 12px 20px;
+
     /* right: 0; */
     /* position: absolute; */
 }
