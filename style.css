@@ -153,12 +153,48 @@ body {
     justify-content: end;
 }
 
+.popup-filter__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 32px auto 20px;
+}
+
 .popup-filter__body {
     background-color: white;
     width: 520px;
     height: 100%;
+    padding: 32px 20px 12px 20px;
     /* right: 0; */
     /* position: absolute; */
 }
+
+.popup-filter__general {
+    max-width: 387px;
+    width: 100%;
+}
+
+.popup-filter__checkbox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.popup-filter__checkbox button{
+    width: auto;
+    height: 50px;
+    background-color: #fff;
+    border: 1px solid #F0F0F0; 
+    border-radius: 6px; 
+    padding: 9px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 11px 16px;
+}
+
+.popup-filter__checkbox button.active {
+    background-color: #FF7010;
+    color: #fff;
+    border: 1px solid #FF7010;
+}
+
 
 /* End Popup */

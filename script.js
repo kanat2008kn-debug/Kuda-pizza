@@ -44,3 +44,9 @@ document.querySelector('.info__link').addEventListener('click', function () {
     this.textContent = buttonText2;
     buttonText2 =  buttonText;
 })
+
+
+/*ждет загрузки страницы*/
+document.addEventListener('DOMContentLoaded', function () {
+    /*находит кнопку*/
+    document.querySelector('.header__burger').addEventListener('click', function () {
