@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    
     let titles = [
     "Общее",
     "Сыр",
@@ -143,4 +144,17 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         groups.innerHTML = groupHtml;
     }
+    
+    const buttonPopupClose = document.querySelector('.popup-filter__clouse');
+    if (buttonPopupClose) {
+        buttonPopupClose.addEventListener('click', function () {
+            popupFilter.classList.remove('popup-filter--active')
+            setTimeout (function () {
+                popupFilter.classList.remove('popup-filter--show')
+            }, 1000)
+            }
+        );
+    };
+
+
     });
